@@ -11,7 +11,7 @@ namespace BankData
 {
     public class BankContext : DbContext
     {
-        private const string connectionString = "Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=Banks;Integrated Security=True";
+        private const string connectionString = "Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=NovaBank;Integrated Security=True";
         
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Customer> Customers { get; set; }
