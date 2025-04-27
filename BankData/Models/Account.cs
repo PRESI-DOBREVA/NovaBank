@@ -14,5 +14,6 @@ namespace BankData.Models
         public double Balance { get; set; }
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
+        public string Currency {  get; set; }
     }
 }
