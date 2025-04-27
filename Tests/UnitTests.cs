@@ -23,7 +23,7 @@ namespace Tests
 
         [TestMethod]
         public void CardCreationTest()
-        {   
+        {
             // Arrange
             var card = new BankData.Models.Card
             {
@@ -60,7 +60,7 @@ namespace Tests
 
         [TestMethod]
         public void LoanTest()
-        {   
+        {
             // Arrange
             var loan = new BankData.Models.Loan
             {
@@ -76,6 +76,22 @@ namespace Tests
 
             // Assert
             Assert.AreEqual(5000, result);
+        }
+        [TestMethod]
+        public void CustomeTest()
+        {
+            // Arrange
+            var customer = new BankData.Models.Customer
+            {
+                Id = 1,
+                Name = "John Doe",
+                Address = "123 Main St",
+                PhoneNumber = "555-1234"
+            };
+            // Act
+            var result = customer.Name;
+            // Assert
+            Assert.AreEqual("John Doe", result);
         }
     }
 }
