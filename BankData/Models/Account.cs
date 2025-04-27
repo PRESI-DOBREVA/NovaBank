@@ -22,6 +22,9 @@ namespace BankData.Models
         public virtual Customer Customer { get; set; }
         
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 8f3205ab92759d9dcea459007abae6944bf885f8
+=======
 >>>>>>> 8f3205ab92759d9dcea459007abae6944bf885f8
 =======
 >>>>>>> 8f3205ab92759d9dcea459007abae6944bf885f8
