@@ -5,7 +5,7 @@
     ViewData["Title"] = "Сметки";
 }
 
-<h1>Index</h1>
+<h1>Сметки</h1>
 
 <p>
     <a asp-page="Create" class="btn btn-primary">Добави нова сметка</a>
@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Account[0].Balance)
+                Басланс по сметката
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Account[0].Customer)
+                Клиент на сметката
             </th>
             <th></th>
         </tr>
@@ -32,9 +32,9 @@
                 @Html.DisplayFor(modelItem => item.Customer.Address)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>
             </td>
         </tr>
 }

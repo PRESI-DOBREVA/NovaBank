@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BankData;
 using BankData.Models;
 
-namespace BankUI.Pages
+namespace BankUI.Pages.Cards
 {
     public class IndexModel : PageModel
     {

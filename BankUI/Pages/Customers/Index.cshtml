@@ -2,25 +2,25 @@
 @model BankUI.Pages.Customers.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Клиентела";
 }
 
-<h1>Index</h1>
+<h1>Клиентела</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-primary"> Добави ми нов клиент веднага</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].Name)
+               Име на 1овечето
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].Address)
+                Адреса му
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].PhoneNumber)
+               Тела му
             </th>
             <th></th>
         </tr>
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Детайл</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Трий</a>
             </td>
         </tr>
 }

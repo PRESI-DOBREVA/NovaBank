@@ -1,0 +1,42 @@
+﻿@page
+@model BankUI.Pages.Cards.IndexModel
+
+@{
+    ViewData["Title"] = "Пластики";
+}
+
+<h1>Пластики</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Добави нова пластика</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Сметка на човечето
+            </th>
+            <th>
+               Тип на пластиката
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Card) {
+        <tr>
+            <td>
+                Номер на сметката
+            </td>
+            <td>
+               Тип на пластиката
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CardNumber">Редактирай</a> |
+                <a asp-page="./Details" asp-route-id="@item.CardNumber">ДЕтайл</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CardNumber">Трий</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
