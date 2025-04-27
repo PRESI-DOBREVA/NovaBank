@@ -10,5 +10,6 @@ namespace BankData.Models
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
+        public virtual ICollection<Loan> Loans { get; set; } = new List<Loan>();
     }
 }
