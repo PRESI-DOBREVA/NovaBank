@@ -13,8 +13,9 @@ namespace BankData.Models
         public int Id { get; set; }
         public double Balance { get; set; }
         public int CustomerId { get; set; }
-        public virtual Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; };
         public virtual ICollection<Card> Cards { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+        public string Currency {  get; set; }
     }
 }
