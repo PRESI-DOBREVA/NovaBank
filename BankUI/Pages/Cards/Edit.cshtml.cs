@@ -23,7 +23,7 @@ namespace BankUI.Pages.Cards
         [BindProperty]
         public Card Card { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
@@ -70,7 +70,7 @@ namespace BankUI.Pages.Cards
             return RedirectToPage("./Index");
         }
 
-        private bool CardExists(string id)
+        private bool CardExists(int id)
         {
             return _context.Cards.Any(e => e.CardNumber == id);
         }

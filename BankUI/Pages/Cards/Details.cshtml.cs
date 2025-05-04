@@ -21,7 +21,7 @@ namespace BankUI.Pages.Cards
 
         public Card Card { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
