@@ -1,41 +1,47 @@
 ﻿@page
-@model BankUI.Pages.Transactions.IndexModel
+@model BankUI.Pages.Loans.IndexModel
 
 @{
-    ViewData["Title"] = "Транзакции";
+    ViewData["Title"] = "Кредити";
 }
 
-<h1>Транзакции</h1>
+<h1>Кредити</h1>
 
 <p>
-    <a asp-page="Create">Направете нова</a>
+    <a asp-page="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].Account)
+                @Html.DisplayNameFor(model => model.Loan[0].Customer)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].Amount)
+                @Html.DisplayNameFor(model => model.Loan[0].Amount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].TransactionType)
+                @Html.DisplayNameFor(model => model.Loan[0].Interest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loan[0].Term)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Transaction) {
+@foreach (var item in Model.Loan) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Account.Id)
+                @Html.DisplayFor(modelItem => item.Customer.Address)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TransactionType)
+                @Html.DisplayFor(modelItem => item.Interest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Term)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |

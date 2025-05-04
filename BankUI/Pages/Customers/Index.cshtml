@@ -2,25 +2,25 @@
 @model BankUI.Pages.Customers.IndexModel
 
 @{
-    ViewData["Title"] = "Клиентела";
+    ViewData["Title"] = "Клиенти";
 }
 
-<h1>Клиентела</h1>
+<h1>Клиенти</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary"> Добави ми нов клиент веднага</a>
+    <a asp-page="Create" class="btn btn-primary"> Добави ми нов клиент</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-               Име на 1овечето
+               Име на човека
             </th>
             <th>
-                Адреса му
+                Адреса на човека
             </th>
             <th>
-               Тела му
+               Телефонен номер
             </th>
             <th></th>
         </tr>
@@ -39,8 +39,8 @@
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Детайл</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Трий</a>
+                <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>
             </td>
         </tr>
 }

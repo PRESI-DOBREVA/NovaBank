@@ -1,4 +1,7 @@
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using BankUI.Data;
 
 namespace BankUI
 {
@@ -8,6 +11,10 @@ namespace BankUI
         {
             // Builder
             var builder = WebApplication.CreateBuilder(args);
+            // Builder
+            builder.Services.AddDbContext<BankUIContext>(options =>
+            // Builder
+                options.UseSqlServer(builder.Configuration.GetConnectionString("BankUIContext") ?? throw new InvalidOperationException("Connection string 'BankUIContext' not found.")));
             builder.Services.AddRazorPages();
             builder.Services.AddDbContext<BankData.BankContext>();
 

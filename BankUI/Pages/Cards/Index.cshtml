@@ -2,22 +2,22 @@
 @model BankUI.Pages.Cards.IndexModel
 
 @{
-    ViewData["Title"] = "Пластики";
+    ViewData["Title"] = "Карти";
 }
 
-<h1>Пластики</h1>
+<h1>Карти</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">Добави нова пластика</a>
+    <a asp-page="Create" class="btn btn-primary">Добави нова карта</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Сметка на човечето
+                Сметка на човека
             </th>
             <th>
-               Тип на пластиката
+               Тип карта
             </th>
             <th></th>
         </tr>
@@ -29,12 +29,12 @@
                 Номер на сметката
             </td>
             <td>
-               Тип на пластиката
+               Тип на каратата
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.CardNumber">Редактирай</a> |
-                <a asp-page="./Details" asp-route-id="@item.CardNumber">ДЕтайл</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CardNumber">Трий</a>
+                <a asp-page="./Details" asp-route-id="@item.CardNumber">Детайли</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CardNumber">Изтрий</a>
             </td>
         </tr>
 }
