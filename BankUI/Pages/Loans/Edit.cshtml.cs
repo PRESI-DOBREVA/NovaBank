@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using BankData;
 using BankData.Models;
-using BankUI.Data;
 
 namespace BankUI.Pages.Loans
 {
     public class EditModel : PageModel
     {
-        private readonly BankUI.Data.BankUIContext _context;
+        private readonly BankData.BankContext _context;
 
-        public EditModel(BankUI.Data.BankUIContext context)
+        public EditModel(BankData.BankContext context)
         {
             _context = context;
         }
@@ -30,13 +30,13 @@ namespace BankUI.Pages.Loans
                 return NotFound();
             }
 
-            var loan =  await _context.Loan.FirstOrDefaultAsync(m => m.Id == id);
+            var loan =  await _context.Loans.FirstOrDefaultAsync(m => m.Id == id);
             if (loan == null)
             {
                 return NotFound();
             }
             Loan = loan;
-           ViewData["CustomerId"] = new SelectList(_context.Set<Customer>(), "Id", "Address");
+           ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Address");
             return Page();
         }
 
@@ -72,7 +72,7 @@ namespace BankUI.Pages.Loans
 
         private bool LoanExists(int id)
         {
-            return _context.Loan.Any(e => e.Id == id);
+            return _context.Loans.Any(e => e.Id == id);
         }
     }
 }

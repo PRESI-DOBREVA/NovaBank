@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using BankData;
 using BankData.Models;
-using BankUI.Data;
 
 namespace BankUI.Pages.Loans
 {
     public class DetailsModel : PageModel
     {
-        private readonly BankUI.Data.BankUIContext _context;
+        private readonly BankData.BankContext _context;
 
-        public DetailsModel(BankUI.Data.BankUIContext context)
+        public DetailsModel(BankData.BankContext context)
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace BankUI.Pages.Loans
                 return NotFound();
             }
 
-            var loan = await _context.Loan.FirstOrDefaultAsync(m => m.Id == id);
+            var loan = await _context.Loans.FirstOrDefaultAsync(m => m.Id == id);
             if (loan == null)
             {
                 return NotFound();

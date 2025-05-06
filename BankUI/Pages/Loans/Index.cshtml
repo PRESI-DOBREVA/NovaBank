@@ -2,10 +2,10 @@
 @model BankUI.Pages.Loans.IndexModel
 
 @{
-    ViewData["Title"] = "Кредити";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Кредити</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Term)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

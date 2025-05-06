@@ -5,23 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using BankData;
 using BankData.Models;
-using BankUI.Data;
 
 namespace BankUI.Pages.Loans
 {
     public class CreateModel : PageModel
     {
-        private readonly BankUI.Data.BankUIContext _context;
+        private readonly BankData.BankContext _context;
 
-        public CreateModel(BankUI.Data.BankUIContext context)
+        public CreateModel(BankData.BankContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerId"] = new SelectList(_context.Set<Customer>(), "Id", "Address");
+        ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Address");
             return Page();
         }
 
@@ -36,7 +36,7 @@ namespace BankUI.Pages.Loans
                 return Page();
             }
 
-            _context.Loan.Add(Loan);
+            _context.Loans.Add(Loan);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

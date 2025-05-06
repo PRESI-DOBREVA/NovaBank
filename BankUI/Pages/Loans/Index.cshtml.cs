@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using BankData;
 using BankData.Models;
-using BankUI.Data;
 
 namespace BankUI.Pages.Loans
 {
     public class IndexModel : PageModel
     {
-        private readonly BankUI.Data.BankUIContext _context;
+        private readonly BankData.BankContext _context;
 
-        public IndexModel(BankUI.Data.BankUIContext context)
+        public IndexModel(BankData.BankContext context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace BankUI.Pages.Loans
 
         public async Task OnGetAsync()
         {
-            Loan = await _context.Loan
+            Loan = await _context.Loans
                 .Include(l => l.Customer).ToListAsync();
         }
     }

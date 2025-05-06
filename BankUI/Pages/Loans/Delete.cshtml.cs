@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using BankData;
 using BankData.Models;
-using BankUI.Data;
 
 namespace BankUI.Pages.Loans
 {
     public class DeleteModel : PageModel
     {
-        private readonly BankUI.Data.BankUIContext _context;
+        private readonly BankData.BankContext _context;
 
-        public DeleteModel(BankUI.Data.BankUIContext context)
+        public DeleteModel(BankData.BankContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace BankUI.Pages.Loans
                 return NotFound();
             }
 
-            var loan = await _context.Loan.FirstOrDefaultAsync(m => m.Id == id);
+            var loan = await _context.Loans.FirstOrDefaultAsync(m => m.Id == id);
 
             if (loan == null)
             {
@@ -49,11 +49,11 @@ namespace BankUI.Pages.Loans
                 return NotFound();
             }
 
-            var loan = await _context.Loan.FindAsync(id);
+            var loan = await _context.Loans.FindAsync(id);
             if (loan != null)
             {
                 Loan = loan;
-                _context.Loan.Remove(Loan);
+                _context.Loans.Remove(Loan);
                 await _context.SaveChangesAsync();
             }
 
