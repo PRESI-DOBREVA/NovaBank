@@ -36,7 +36,7 @@ namespace BankUI.Pages.Accounts
                 return NotFound();
             }
             Account = account;
-           ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Address");
+           ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Name");
             return Page();
         }
 

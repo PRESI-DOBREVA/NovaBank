@@ -1,4 +1,4 @@
-namespace Tests
+﻿namespace Tests
 {
     [TestClass]
     public class UnitTests
@@ -27,7 +27,7 @@ namespace Tests
             // Arrange
             var card = new BankData.Models.Card
             {
-                CardNumber = "1234567890123456",
+                CardNumber = 1234567,
                 AccountId = 1,
                 CardType = "Visa"
             };
@@ -36,7 +36,7 @@ namespace Tests
             var result = card.CardNumber;
 
             // Assert
-            Assert.AreEqual("1234567890123456", result);
+            Assert.AreEqual(1234567, result);
         }
 
         [TestMethod]
@@ -78,7 +78,7 @@ namespace Tests
             Assert.AreEqual(5000, result);
         }
         [TestMethod]
-        public void CustomeTest()
+        public void CustomerTest()
         {
             // Arrange
             var customer = new BankData.Models.Customer

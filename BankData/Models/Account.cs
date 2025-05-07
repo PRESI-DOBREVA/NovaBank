@@ -12,20 +12,10 @@ namespace BankData.Models
     {
         [Key]
         public int Id { get; set; }
-
         public double Balance { get; set; }
-
-        [ForeignKey("Customer")]
         public int CustomerId { get; set; }
-
-        
         public virtual Customer? Customer { get; set; }
-
         public virtual ICollection<Card> Cards { get; set; } = new List<Card>();
-
         public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
-
-        
-        
     }
 }

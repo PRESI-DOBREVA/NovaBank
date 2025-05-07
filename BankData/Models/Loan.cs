@@ -12,7 +12,7 @@ namespace BankData.Models
         [Key]
         public int Id { get; set; }
         public int CustomerId { get; set; }
-        public virtual Customer Customer { get; set; }
+        public virtual Customer? Customer { get; set; }
         public decimal Amount { get; set; }
         public decimal Interest { get; set; }
         public int Term { get; set; } 

@@ -38,6 +38,8 @@ namespace BankUI.Pages.Transactions
 
             _context.Transactions.Add(Transaction);
             await _context.SaveChangesAsync();
+            _context.Accounts.FirstOrDefault(x => x.Id == Transaction.AccountId).Transactions.Add(Transaction);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

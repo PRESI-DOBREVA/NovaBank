@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BankData\BankData.csproj" />
+    <ProjectReference Include="..\BankUI\BankUI.csproj" />
   </ItemGroup>
 
   <ItemGroup>
