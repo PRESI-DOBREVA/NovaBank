@@ -27,13 +27,13 @@
             // Arrange
             var card = new BankData.Models.Card
             {
-                CardNumber = 1234567,
+                Id = 1234567,
                 AccountId = 1,
-                CardType = "Visa"
+                Type = "Visa"
             };
 
             // Act
-            var result = card.CardNumber;
+            var result = card.Id;
 
             // Assert
             Assert.AreEqual(1234567, result);

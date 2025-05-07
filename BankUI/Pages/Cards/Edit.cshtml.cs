@@ -30,7 +30,7 @@ namespace BankUI.Pages.Cards
                 return NotFound();
             }
 
-            var card =  await _context.Cards.FirstOrDefaultAsync(m => m.CardNumber == id);
+            var card =  await _context.Cards.FirstOrDefaultAsync(m => m.Id == id);
             if (card == null)
             {
                 return NotFound();
@@ -57,7 +57,7 @@ namespace BankUI.Pages.Cards
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CardExists(Card.CardNumber))
+                if (!CardExists(Card.Id))
                 {
                     return NotFound();
                 }
@@ -72,7 +72,7 @@ namespace BankUI.Pages.Cards
 
         private bool CardExists(int id)
         {
-            return _context.Cards.Any(e => e.CardNumber == id);
+            return _context.Cards.Any(e => e.Id == id);
         }
     }
 }

@@ -13,15 +13,15 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Card.CardNumber" />
+            <input type="hidden" asp-for="Card.Id" />
             <div class="form-group">
                 <label asp-for="Card.AccountId" class="control-label"></label>
                 <select asp-for="Card.AccountId" class="form-control" asp-items="ViewBag.AccountId"></select>
                 <span asp-validation-for="Card.AccountId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Card.CardType" class="control-label"></label>
-				<input asp-for="Card.CardType" class="form-control" />
+                <label asp-for="Card.Type" class="control-label"></label>
+				<input asp-for="Card.Type" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

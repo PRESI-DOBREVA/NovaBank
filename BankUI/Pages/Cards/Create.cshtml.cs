@@ -39,10 +39,6 @@ namespace BankUI.Pages.Cards
 
             _context.Cards.Add(Card);
             await _context.SaveChangesAsync();
-            _context.Accounts.FirstOrDefault(x => x.Id == Card.AccountId).Cards.Add(Card);
-            await _context.SaveChangesAsync();
-            _context.Cards.FirstOrDefault(x => x.CardNumber == Card.CardNumber).Account = _context.Accounts.FirstOrDefault(x => x.Id == Card.AccountId);
-            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

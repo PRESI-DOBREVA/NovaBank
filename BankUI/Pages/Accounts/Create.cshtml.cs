@@ -44,11 +44,7 @@ namespace BankUI.Pages.Accounts
 
             _context.Accounts.Add(Account);
             await _context.SaveChangesAsync();
-            _context.Customers.FirstOrDefault(x => x.Id == Account.CustomerId).Accounts.Add(Account);
-            await _context.SaveChangesAsync();
-            _context.Accounts.FirstOrDefault(x => x.Id == Account.Id).Customer = _context.Customers.FirstOrDefault(x => x.Id == Account.CustomerId);
-            await _context.SaveChangesAsync();
-
+ 
             return RedirectToPage("./Index");
         }
     }

@@ -38,10 +38,6 @@ namespace BankUI.Pages.Loans
 
             _context.Loans.Add(Loan);
             await _context.SaveChangesAsync();
-            _context.Customers.FirstOrDefault(x => x.Id == Loan.CustomerId).Loans.Add(Loan);
-            await _context.SaveChangesAsync();
-            _context.Loans.FirstOrDefault(x => x.Id == Loan.Id).Customer = _context.Customers.FirstOrDefault(x => x.Id == Loan.CustomerId);
-            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

@@ -28,7 +28,7 @@ namespace BankUI.Pages.Cards
                 return NotFound();
             }
 
-            var card = await _context.Cards.FirstOrDefaultAsync(m => m.CardNumber == id);
+            var card = await _context.Cards.FirstOrDefaultAsync(m => m.Id == id);
             if (card == null)
             {
                 return NotFound();
