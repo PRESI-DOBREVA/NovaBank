@@ -23,13 +23,13 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Account) {
+@foreach (var item in Model.Accounts) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Balance)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.Address)
+                @Html.DisplayFor(modelItem => item.Customer.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |

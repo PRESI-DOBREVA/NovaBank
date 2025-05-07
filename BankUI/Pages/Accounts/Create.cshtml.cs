@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BankData;
 using BankData.Models;
+using System.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace BankUI.Pages.Accounts
 {
@@ -18,21 +20,25 @@ namespace BankUI.Pages.Accounts
         {
             _context = context;
         }
-
-        public IActionResult OnGet()
+        
+        public async Task<IActionResult> OnGet()
         {
-        ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Address");
+            Customers = new SelectList(_context.Customers.ToList(), "Id", "Name");
             return Page();
         }
 
         [BindProperty]
-        public Account Account { get; set; } = default!;
+        public Account Account { get; set; } 
 
+        public SelectList Customers { get; set; } = default!;
+        
         // For more information, see https://aka.ms/RazorPagesCRUD.
+        
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                Customers = new SelectList(_context.Customers, "Id", "Name");
                 return Page();
             }
 

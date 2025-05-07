@@ -19,11 +19,11 @@ namespace BankUI.Pages.Accounts
             _context = context;
         }
 
-        public IList<Account> Account { get;set; } = default!;
+        public IList<Account> Accounts { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Account = await _context.Accounts
+            Accounts = await _context.Accounts
                 .Include(a => a.Customer).ToListAsync();
         }
     }

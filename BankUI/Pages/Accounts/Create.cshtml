@@ -20,7 +20,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Account.CustomerId" class="control-label"></label>
-                <select asp-for="Account.CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+                <select class="form-control" asp-for="Account.CustomerId" class ="form-control" asp-items="Model.Customers">
+                    <option>Избери клиент</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

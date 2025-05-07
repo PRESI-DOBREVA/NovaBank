@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankData.Models
 {
@@ -14,11 +15,13 @@ namespace BankData.Models
 
         public double Balance { get; set; }
 
+        [ForeignKey("Customer")]
         public int CustomerId { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        
+        public virtual Customer? Customer { get; set; }
 
-        public virtual ICollection<Card> Cards { get; set; }
+        public virtual ICollection<Card> Cards { get; set; } = new List<Card>();
 
         public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 
