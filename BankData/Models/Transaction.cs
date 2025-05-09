@@ -16,7 +16,8 @@ namespace BankData.Models
         public int AccountId {get; set;}
         public virtual Account? Account { get; set;}
         public decimal Amount { get; set; }
-        public int TransactionType { get; set; }
+        public string TransactionType { get; set; }
         
+
     }
 }

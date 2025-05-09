@@ -12,7 +12,7 @@ namespace BankData.Models
     {
         [Key]
         public int Id { get; set; }
-        public double Balance { get; set; }
+        public decimal Balance { get; set; }
         public int CustomerId { get; set; }
         public virtual Customer? Customer { get; set; }
         public virtual ICollection<Card> Cards { get; set; } = new List<Card>();
