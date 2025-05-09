@@ -1,6 +1,6 @@
 # NovaBank
 
-**NovaBank** is a three-layer ASP.NET Core MVC application developed by team *Fusion 5* The application simulates basic banking operations and demonstrates the use of modern software development practices.
+**NovaBank** is a three-layer ASP.NET Core Razor Pages application developed by team *Fusion 5* The application simulates basic banking operations and demonstrates the use of modern software development practices.
 
 ## 👥 Team Fusion 5
 
@@ -14,22 +14,20 @@
 
 NovaBank is a web-based banking system that allows users to register, log in, view their accounts, make transfers, and manage transactions. The system is designed with a clean three-layer architecture:
 
-- **Presentation Layer** – ASP.NET Core MVC (controllers and views)
+- **Presentation Layer** – ASP.NET Core Razor Pages (controllers and views)
 - **Service Layer** – Contains the business logic
 - **Data Access Layer** – Uses Entity Framework Core to interact with a SQL Server database
 
 ## 🔧 Features
 
-- User registration and authentication
 - View account balances
 - Make money transfers
 - View transaction history
-- Admin panel for managing users and accounts
 
 
 ## 💻 Technologies Used
 
-- ASP.NET Core MVC
+- ASP.NET Core Razor Pages
 - Entity Framework Core
 - SQL Server
 - Git & GitHub
