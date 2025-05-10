@@ -27,7 +27,7 @@ namespace BankUI
             app.UseRouting();
             app.UseAuthorization();
             app.MapRazorPages();
-
+            app.UseRequestLocalization("bg-BG");
             // Run
             app.Run();
         }
