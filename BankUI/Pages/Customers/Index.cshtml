@@ -40,7 +40,10 @@
            <td>  
                <!-- Показване на адреса на клиента -->  
                @Html.DisplayFor(modelItem => item.Address)  
-           </td> 
+           </td>
+           <td>
+               <!-- Показване на телефонния номер на клиента -->
+               @Html.DisplayFor(modelItem => item.PhoneNumber)
            <td>  
                <!-- Линкове за редактиране, детайли и изтриване на клиента -->  
                <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |  

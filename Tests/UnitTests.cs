@@ -164,5 +164,7 @@
             // Assert
             Assert.AreEqual(1, result);
         }
+        [TestMethod]
+
     }
 }

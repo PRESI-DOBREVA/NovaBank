@@ -32,7 +32,15 @@
                <input asp-for="Customer.Address" class="form-control" />  
                <!-- Показване на грешки за адреса на клиента -->  
                <span asp-validation-for="Customer.Address" class="text-danger"></span>  
-           </div>  
+           </div>
+           <div class="form-group">
+               <!-- Етикет за телефонния номер на клиента -->
+               <label asp-for="Customer.PhoneNumber" class="control-label"></label>
+               <!-- Поле за въвеждане на телефонния номер на клиента -->
+               <input asp-for="Customer.PhoneNumber" class="form-control" />
+               <!-- Показване на грешки за телефонния номер на клиента -->
+               <span asp-validation-for="Customer.PhoneNumber" class="text-danger"></span>
+           </div>
            <div class="form-group">  
                <!-- Бутон за запазване на промените -->  
                <input type="submit" value="Save" class="btn btn-primary" />  

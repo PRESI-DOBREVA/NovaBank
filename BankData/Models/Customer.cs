@@ -23,6 +23,10 @@ namespace BankData.Models
         /// </summary>
         public string Address { get; set; }
         /// <summary>
+        /// Телефонният номер на клиента.
+        /// </summary>
+        public string PhoneNumber { get; set; }
+        /// <summary>
         /// Колекция от сметки, притежавани от клиента.
         /// </summary>
         public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();

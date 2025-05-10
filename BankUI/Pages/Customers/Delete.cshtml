@@ -26,7 +26,14 @@
        </dt>  
        <dd class="col-sm-10">  
            @Html.DisplayFor(model => model.Customer.Address)  
-       </dd>  
+       </dd>
+       <dt class="col-sm-2">
+           <!-- Показване на телефонния номер на клиента -->
+           @Html.DisplayNameFor(model => model.Customer.PhoneNumber)
+       </dt>
+       <dd class="col-sm-10">
+           @Html.DisplayFor(model => model.Customer.PhoneNumber)
+       </dd>
    </dl>  
 
    <form method="post">  
