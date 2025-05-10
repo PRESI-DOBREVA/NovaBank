@@ -3,46 +3,59 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Новата Банка 2.0</title>
+    <title>Nova Bank</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BankUI.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Новата Банка 2.0</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-sm custom-navbar fixed-top border-bottom shadow-lg w-100 p-0">
+            <div class="container-fluid p-0">
+                <a class="navbar-brand p-0 m-0" asp-area="" asp-page="/Index">
+                    <img src="~/logo.png" alt="Logo" />
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Начало</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Accounts/Index">Сметки</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Customers/Index">Клиенти</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Cards/Index">Пластики</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Transactions/Index">Трансакции</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Loans/Index">Заеми</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Политика за поверителност</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <div class="custom-nav">
+                        @{
+                            var path = Context.Request.Path;
+                        }
+                        <div class="dropdown">
+                            <button class="dropdown-button @(path.StartsWithSegments("/Accounts") ? "active-page" : "")">Сметки</button>
+                            <div class="dropdown-content">
+                                <a asp-area="" asp-page="/Accounts/Index" class="@(path == "/Accounts/Index" ? "active-page" : "")">Преглед</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-button @(path.StartsWithSegments("/Customers") ? "active-page" : "")">Клиенти</button>
+                            <div class="dropdown-content">
+                                <a asp-area="" asp-page="/Customers/Index" class="@(path == "/Customers/Index" ? "active-page" : "")">Преглед</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-button @(path.StartsWithSegments("/Cards") ? "active-page" : "")">Пластики</button>
+                            <div class="dropdown-content">
+                                <a asp-area="" asp-page="/Cards/Index" class="@(path == "/Cards/Index" ? "active-page" : "")">Преглед</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-button @(path.StartsWithSegments("/Transactions") ? "active-page" : "")">Трансакции</button>
+                            <div class="dropdown-content">
+                                <a asp-area="" asp-page="/Transactions/Index" class="@(path == "/Transactions/Index" ? "active-page" : "")">Преглед</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-button @(path.StartsWithSegments("/Loans") ? "active-page" : "")">Заеми</button>
+                            <div class="dropdown-content">
+                                <a asp-area="" asp-page="/Loans/Index" class="@(path == "/Loans/Index" ? "active-page" : "")">Преглед</a>
+                            </div>
+          </div>
         </nav>
     </header>
     <div class="container">
@@ -53,7 +66,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - Новата Банка 2.0 - <a asp-area="" asp-page="/Privacy">Политика за поверителнос</a>
+            &copy; 2025 - Nova Bank - <a asp-area="" asp-page="/Privacy">Политика за поверителност</a>
         </div>
     </footer>
 
