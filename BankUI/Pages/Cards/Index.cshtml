@@ -1,42 +1,49 @@
-﻿@page
-@model BankUI.Pages.Cards.IndexModel
+﻿@page  
+@model BankUI.Pages.Cards.IndexModel  
 
-@{
-    ViewData["Title"] = "Карти";
-}
+@{  
+   // Задаване на заглавие на страницата  
+   ViewData["Title"] = "Карти";  
+}  
 
-<h1>Карти</h1>
+<h1>Карти</h1>  
 
-<p>
-    <a asp-page="Create" class="btn btn-primary">Добави нова карта</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Сметка на човека
-            </th>
-            <th>
-               Тип карта
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Card) {
-        <tr>
-            <td>
-                Номер на сметката
-            </td>
-            <td>
-               Тип на каратата
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>
-            </td>
-        </tr>
-}
-    </tbody>
+<p>  
+   <!-- Линк за добавяне на нова карта -->  
+   <a asp-page="Create" class="btn btn-primary">Добави нова карта</a>  
+</p>  
+<table class="table">  
+   <thead>  
+       <tr>  
+           <th>  
+               <!-- Колона за сметката на човека -->  
+               Сметка на човека  
+           </th>  
+           <th>  
+               <!-- Колона за типа на картата -->  
+               Тип карта  
+           </th>  
+           <th></th>  
+       </tr>  
+   </thead>  
+   <tbody>  
+       @foreach (var item in Model.Card) {  
+           <tr>  
+               <td>  
+                   <!-- Показване на номера на сметката -->  
+                   Номер на сметката  
+               </td>  
+               <td>  
+                   <!-- Показване на типа на картата -->  
+                   Тип на каратата  
+               </td>  
+               <td>  
+                   <!-- Линкове за редактиране, детайли и изтриване на картата -->  
+                   <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |  
+                   <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |  
+                   <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>  
+               </td>  
+           </tr>  
+       }  
+   </tbody>  
 </table>

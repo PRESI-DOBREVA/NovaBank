@@ -1,40 +1,50 @@
-﻿@page
-@model BankUI.Pages.Transactions.DeleteModel
+﻿@page  
+@model BankUI.Pages.Transactions.DeleteModel  
 
-@{
-    ViewData["Title"] = "Delete";
-}
+@{  
+// Задаване на заглавие на страницата  
+ViewData["Title"] = "Изтриване";  
+}  
 
-<h1>Delete</h1>
+<h1>Изтриване</h1>  
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Transaction</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.Account)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.Account.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.Amount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.Amount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.TransactionType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.TransactionType)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Transaction.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+<h3>Сигурни ли сте, че искате да изтриете това?</h3>  
+<div>  
+<h4>Транзакция</h4>  
+<hr />  
+<dl class="row">  
+   <dt class="col-sm-2">  
+       <!-- Показване на името на акаунта -->
+       @Html.DisplayNameFor(model => model.Transaction.Account)  
+   </dt>  
+   <dd class="col-sm-10">  
+       <!-- Показване на ID на акаунта -->
+       @Html.DisplayFor(model => model.Transaction.Account.Id)  
+   </dd>  
+   <dt class="col-sm-2">  
+       <!-- Показване на етикета за сума -->
+       @Html.DisplayNameFor(model => model.Transaction.Amount)  
+   </dt>  
+   <dd class="col-sm-10">  
+       <!-- Показване на стойността на сумата -->
+       @Html.DisplayFor(model => model.Transaction.Amount)  
+   </dd>  
+   <dt class="col-sm-2">  
+       <!-- Показване на етикета за тип транзакция -->
+       @Html.DisplayNameFor(model => model.Transaction.TransactionType)  
+   </dt>  
+   <dd class="col-sm-10">  
+       <!-- Показване на стойността на типа транзакция -->
+       @Html.DisplayFor(model => model.Transaction.TransactionType)  
+   </dd>  
+</dl>  
+
+<form method="post">  
+   <!-- Скрито поле за ID на транзакцията -->
+   <input type="hidden" asp-for="Transaction.Id" />  
+   <!-- Бутон за изтриване -->
+   <input type="submit" value="Изтриване" class="btn btn-danger" /> |  
+   <!-- Линк за връщане към списъка -->
+   <a asp-page="./Index">Обратно към списъка</a>  
+</form>  
 </div>

@@ -1,43 +1,54 @@
-﻿@page
-@model BankUI.Pages.Loans.DetailsModel
+﻿@page  
+@model BankUI.Pages.Loans.DetailsModel  
 
-@{
-    ViewData["Title"] = "Details";
-}
+@{  
+   // Задаване на заглавието на страницата  
+   ViewData["Title"] = "Details";  
+}  
 
-<h1>Details</h1>
+<h1>Details</h1>  
 
-<div>
-    <h4>Loan</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Loan.Customer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Loan.Customer.Address)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Loan.Amount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Loan.Amount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Loan.Interest)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Loan.Interest)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Loan.Term)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Loan.Term)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Loan.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+<div>  
+   <h4>Loan</h4>  
+   <hr />  
+   <dl class="row">  
+       <dt class="col-sm-2">  
+           <!-- Показване на името на клиента -->  
+           @Html.DisplayNameFor(model => model.Loan.Customer)  
+       </dt>  
+       <dd class="col-sm-10">  
+           <!-- Показване на стойността на името на клиента -->  
+           @Html.DisplayFor(model => model.Loan.Customer.Name)  
+       </dd>  
+       <dt class="col-sm-2">  
+           <!-- Показване на етикета за сумата на заема -->  
+           @Html.DisplayNameFor(model => model.Loan.Amount)  
+       </dt>  
+       <dd class="col-sm-10">  
+           <!-- Показване на стойността на сумата на заема -->  
+           @Html.DisplayFor(model => model.Loan.Amount)  
+       </dd>  
+       <dt class="col-sm-2">  
+           <!-- Показване на етикета за лихвата -->  
+           @Html.DisplayNameFor(model => model.Loan.Interest)  
+       </dt>  
+       <dd class="col-sm-10">  
+           <!-- Показване на стойността на лихвата -->  
+           @Html.DisplayFor(model => model.Loan.Interest)  
+       </dd>  
+       <dt class="col-sm-2">  
+           <!-- Показване на етикета за срока на заема -->  
+           @Html.DisplayNameFor(model => model.Loan.Term)  
+       </dt>  
+       <dd class="col-sm-10">  
+           <!-- Показване на стойността на срока на заема -->  
+           @Html.DisplayFor(model => model.Loan.Term)  
+       </dd>  
+   </dl>  
+</div>  
+<div>  
+   <!-- Линк за редактиране на текущия заем -->  
+   <a asp-page="./Edit" asp-route-id="@Model.Loan.Id">Edit</a> |  
+   <!-- Линк за връщане към списъка със заеми -->  
+   <a asp-page="./Index">Back to List</a>  
 </div>

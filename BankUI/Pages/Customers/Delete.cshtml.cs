@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using BankData;
 using BankData.Models;
 
 namespace BankUI.Pages.Customers
@@ -14,14 +9,26 @@ namespace BankUI.Pages.Customers
     {
         private readonly BankData.BankContext _context;
 
+        /// <summary>
+        /// Конструктор за инициализиране на модела за изтриване.
+        /// </summary>
+        /// <param name="context">Контекст на базата данни.</param>
         public DeleteModel(BankData.BankContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// Свойство за свързване на данни на клиента.
+        /// </summary>
         [BindProperty]
         public Customer Customer { get; set; } = default!;
 
+        /// <summary>
+        /// Метод за обработка на GET заявка за изтриване на клиент.
+        /// </summary>
+        /// <param name="id">Идентификатор на клиента.</param>
+        /// <returns>Резултат от заявката.</returns>
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -42,6 +49,11 @@ namespace BankUI.Pages.Customers
             return Page();
         }
 
+        /// <summary>
+        /// Метод за обработка на POST заявка за изтриване на клиент.
+        /// </summary>
+        /// <param name="id">Идентификатор на клиента.</param>
+        /// <returns>Резултат от заявката.</returns>
         public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)

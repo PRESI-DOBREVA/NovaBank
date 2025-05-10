@@ -1,42 +1,50 @@
-﻿@page
-@model BankUI.Pages.Accounts.CreateModel
+﻿@page  
+@model BankUI.Pages.Accounts.CreateModel  
 
-@{
-    ViewData["Title"] = "Създай акаунт";
-}
+@{  
+  // Задаване на заглавие на страницата за раздела на браузъра  
+  ViewData["Title"] = "Създай акаунт";  
+}  
 
-<div class="container mt-5">
-    <h2 class="mb-4">Създаване на нов акаунт</h2>
-    <hr />
+<div class="container mt-5">  
+  <h2 class="mb-4">Създаване на нов акаунт</h2>  
+  <hr />  
 
-    <div class="row">
-        <div class="col-md-6">
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+  <div class="row">  
+      <div class="col-md-6">  
+          <!-- Форма за създаване на нов акаунт -->  
+          <form method="post">  
+              <!-- Показване на обобщение на валидацията за модела -->  
+              <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>  
 
-                <div class="form-group mb-3">
-                    <label asp-for="Account.Balance" class="form-label">Начален баланс</label>
-                    <input asp-for="Account.Balance" class="form-control" placeholder="Въведи сума..." />
-                    <span asp-validation-for="Account.Balance" class="text-danger"></span>
-                </div>
+              <!-- Поле за въвеждане на начален баланс на акаунта -->  
+              <div class="form-group mb-3">  
+                  <label asp-for="Account.Balance" class="form-label">Начален баланс</label>  
+                  <input asp-for="Account.Balance" class="form-control" placeholder="Въведи сума..." />  
+                  <span asp-validation-for="Account.Balance" class="text-danger"></span>  
+              </div>  
 
-                <div class="form-group mb-4">
-                    <label asp-for="Account.CustomerId" class="form-label">Избери клиент</label>
-                    <select asp-for="Account.CustomerId" class="form-select" asp-items="Model.Customers">
-                        <option disabled selected>-- Моля, изберете клиент --</option>
-                    </select>
-                    <span asp-validation-for="Account.CustomerId" class="text-danger"></span>
-                </div>
+              <!-- Падащо меню за избор на клиент -->  
+              <div class="form-group mb-4">  
+                  <label asp-for="Account.CustomerId" class="form-label">Избери клиент</label>  
+                  <select asp-for="Account.CustomerId" class="form-select" asp-items="Model.Customers">  
+                      <option disabled selected>-- Моля, изберете клиент --</option>  
+                  </select>  
+                  <span asp-validation-for="Account.CustomerId" class="text-danger"></span>  
+              </div>  
 
-                <button type="submit" class="btn btn-success">Създай акаунт</button>
-                <a asp-page="Index" class="btn btn-outline-secondary ms-2">Назад</a>
-            </form>
-        </div>
-    </div>
-</div>
+              <!-- Бутон за изпращане за създаване на акаунта -->  
+              <button type="submit" class="btn btn-success">Създай акаунт</button>  
+              <!-- Линк за връщане към началната страница -->  
+              <a asp-page="Index" class="btn btn-outline-secondary ms-2">Назад</a>  
+          </form>  
+      </div>  
+  </div>  
+</div>  
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+@section Scripts {  
+  @{  
+      // Включване на скриптове за валидация от страна на клиента  
+      await Html.RenderPartialAsync("_ValidationScriptsPartial");  
+  }  
 }

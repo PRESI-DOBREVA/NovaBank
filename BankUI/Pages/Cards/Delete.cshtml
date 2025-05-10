@@ -1,34 +1,42 @@
-﻿@page
-@model BankUI.Pages.Cards.DeleteModel
+﻿@page  
+@model BankUI.Pages.Cards.DeleteModel  
 
-@{
-    ViewData["Title"] = "Изтрий";
-}
+@{  
+   // Задаване на заглавие на страницата  
+   ViewData["Title"] = "Изтрий";  
+}  
 
-<h1>Изтрий</h1>
+<h1>Изтрий</h1>  
 
-<h3>Сигурни ли сте, че искате да изтриете това?</h3>
-<div>
-    <h4>Карта</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Card.Account)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Card.Account.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Card.Type)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Card.Type)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Card.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+<h3>Сигурни ли сте, че искате да изтриете това?</h3>  
+<div>  
+   <h4>Карта</h4>  
+   <hr />  
+   <dl class="row">  
+       <dt class="col-sm-2">  
+           <!-- Показване на името на акаунта -->  
+           @Html.DisplayNameFor(model => model.Card.Account)  
+       </dt>  
+       <dd class="col-sm-10">  
+           <!-- Показване на ID на акаунта -->  
+           @Html.DisplayFor(model => model.Card.Account.Id)  
+       </dd>  
+       <dt class="col-sm-2">  
+           <!-- Показване на типа на картата -->  
+           @Html.DisplayNameFor(model => model.Card.Type)  
+       </dt>  
+       <dd class="col-sm-10">  
+           <!-- Показване на стойността на типа на картата -->  
+           @Html.DisplayFor(model => model.Card.Type)  
+       </dd>  
+   </dl>  
+   
+   <form method="post">  
+       <!-- Скрито поле за ID на картата -->  
+       <input type="hidden" asp-for="Card.Id" />  
+       <!-- Бутон за изтриване -->  
+       <input type="submit" value="Delete" class="btn btn-danger" /> |  
+       <!-- Линк за връщане към списъка -->  
+       <a asp-page="./Index">Back to List</a>  
+   </form>  
 </div>

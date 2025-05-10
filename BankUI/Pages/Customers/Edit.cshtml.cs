@@ -1,28 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BankData;
 using BankData.Models;
 
 namespace BankUI.Pages.Customers
 {
+    /// <summary>
+    /// Модел за редактиране на клиент.
+    /// </summary>
     public class EditModel : PageModel
     {
         private readonly BankData.BankContext _context;
 
+        /// <summary>
+        /// Конструктор на класа EditModel.
+        /// </summary>
+        /// <param name="context">Контекст на базата данни.</param>
         public EditModel(BankData.BankContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// Свойство за обвързване на данни на клиента.
+        /// </summary>
         [BindProperty]
         public Customer Customer { get; set; } = default!;
 
+        /// <summary>
+        /// Метод за обработка на GET заявка.
+        /// </summary>
+        /// <param name="id">Идентификатор на клиента.</param>
+        /// <returns>Резултат от заявката.</returns>
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,7 +39,7 @@ namespace BankUI.Pages.Customers
                 return NotFound();
             }
 
-            var customer =  await _context.Customers.FirstOrDefaultAsync(m => m.Id == id);
+            var customer = await _context.Customers.FirstOrDefaultAsync(m => m.Id == id);
             if (customer == null)
             {
                 return NotFound();
@@ -39,8 +48,10 @@ namespace BankUI.Pages.Customers
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Метод за обработка на POST заявка.
+        /// </summary>
+        /// <returns>Резултат от заявката.</returns>
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -69,6 +80,11 @@ namespace BankUI.Pages.Customers
             return RedirectToPage("./Index");
         }
 
+        /// <summary>
+        /// Проверява дали клиентът съществува в базата данни.
+        /// </summary>
+        /// <param name="id">Идентификатор на клиента.</param>
+        /// <returns>Истина, ако клиентът съществува; в противен случай - лъжа.</returns>
         private bool CustomerExists(int id)
         {
             return _context.Customers.Any(e => e.Id == id);

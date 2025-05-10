@@ -1,48 +1,53 @@
-﻿@page
-@model BankUI.Pages.Customers.IndexModel
+﻿@page  
+@model BankUI.Pages.Customers.IndexModel  
 
-@{
-    ViewData["Title"] = "Клиенти";
-}
+@{  
+   // Задаване на заглавие на страницата  
+   ViewData["Title"] = "Клиенти";  
+}  
 
-<h1>Клиенти</h1>
+<h1>Клиенти</h1>  
 
-<p>
-    <a asp-page="Create" class="btn btn-primary"> Добави ми нов клиент</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-               Име на човека
-            </th>
-            <th>
-                Адреса на човека
-            </th>
-            <th>
-               Телефонен номер
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Customer) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>
-            </td>
-        </tr>
-}
-    </tbody>
+<p>  
+   <!-- Линк за създаване на нов клиент -->  
+   <a asp-page="Create" class="btn btn-primary"> Добави ми нов клиент</a>  
+</p>  
+<table class="table">  
+   <thead>  
+       <tr>  
+           <th>  
+              <!-- Колона за името на клиента -->  
+              Име на човека  
+           </th>  
+           <th>  
+               <!-- Колона за адреса на клиента -->  
+               Адреса на човека  
+           </th>  
+           <th>  
+              <!-- Колона за телефонния номер на клиента -->  
+              Телефонен номер  
+           </th>  
+           <th></th>  
+       </tr>  
+   </thead>  
+   <tbody>  
+@foreach (var item in Model.Customer) {  
+       <tr>  
+           <td>  
+               <!-- Показване на името на клиента -->  
+               @Html.DisplayFor(modelItem => item.Name)  
+           </td>  
+           <td>  
+               <!-- Показване на адреса на клиента -->  
+               @Html.DisplayFor(modelItem => item.Address)  
+           </td> 
+           <td>  
+               <!-- Линкове за редактиране, детайли и изтриване на клиента -->  
+               <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |  
+               <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |  
+               <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>  
+           </td>  
+       </tr>  
+}  
+   </tbody>  
 </table>

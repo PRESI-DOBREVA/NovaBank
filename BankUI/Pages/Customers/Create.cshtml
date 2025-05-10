@@ -1,44 +1,56 @@
-﻿@page
-@model BankUI.Pages.Customers.CreateModel
+﻿@page  
+@model BankUI.Pages.Customers.CreateModel  
 
-@{
-    ViewData["Title"] = "Създай";
-}
+@{  
+   // Задаване на заглавието на страницата  
+   ViewData["Title"] = "Създай";  
+}  
 
-<h1>Създай</h1>
+<h1>Създай</h1>  
 
-<h4>Клиент</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Customer.Name" class="control-label"></label>
-                <input asp-for="Customer.Name" class="form-control" />
-                <span asp-validation-for="Customer.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.Address" class="control-label"></label>
-                <input asp-for="Customer.Address" class="form-control" />
-                <span asp-validation-for="Customer.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.PhoneNumber" class="control-label"></label>
-                <input asp-for="Customer.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Customer.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+<h4>Клиент</h4>  
+<hr />  
+<div class="row">  
+   <div class="col-md-4">  
+       <form method="post">  
+           <!-- Показване на обобщение на грешките при валидиране -->  
+           <div asp-validation-summary="ModelOnly" class="text-danger"></div>  
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+           <!-- Поле за въвеждане на име на клиента -->  
+           <div class="form-group">  
+               <label asp-for="Customer.Name" class="control-label"></label>  
+               <input asp-for="Customer.Name" class="form-control" />  
+               <span asp-validation-for="Customer.Name" class="text-danger"></span>  
+           </div>  
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+           <!-- Поле за въвеждане на адрес на клиента -->  
+           <div class="form-group">  
+               <label asp-for="Customer.Address" class="control-label"></label>  
+               <input asp-for="Customer.Address" class="form-control" />  
+               <span asp-validation-for="Customer.Address" class="text-danger"></span>  
+           </div>  
+
+           <!-- Поле за въвеждане на телефонен номер на клиента -->  
+           <div class="form-group">  
+               <label asp-for="Customer.PhoneNumber" class="control-label"></label>  
+               <input asp-for="Customer.PhoneNumber" class="form-control" />  
+               <span asp-validation-for="Customer.PhoneNumber" class="text-danger"></span>  
+           </div>  
+
+           <!-- Бутон за създаване на клиента -->  
+           <div class="form-group">  
+               <input type="submit" value="Create" class="btn btn-primary" />  
+           </div>  
+       </form>  
+   </div>  
+</div>  
+
+<div>  
+   <!-- Връзка за връщане към списъка с клиенти -->  
+   <a asp-page="Index">Back to List</a>  
+</div>  
+
+@section Scripts {  
+   // Зареждане на скриптове за валидиране  
+   @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}  
 }
