@@ -6,12 +6,63 @@
 }
 
 <!-- logo -->
-<img src="~/logo.png" width="300" height="300" />
+<div class="text-center mt-5">
+    <img src="~/logo.png" width="200" height="200" class="mb-3" />
 
-<!-- title -->
- <h1>NovaBank</h1>
+    <!-- title -->
+    <h1 class="display-4">NovaBank</h1>
 
-<!-- slogan -->
-<p>
- Вашият модерен път към финансово спокойствие!“
-</p>
+    <!-- slogan -->
+    <p class="lead">Вашият модерен път към финансово спокойствие!</p>
+</div>
+<div class="text-center mt-3">
+    <a asp-page="/Accounts/Create" class="btn btn-success me-2">Създай акаунт</a>
+    <a asp-page="/Accounts/Index" class="btn btn-outline-primary">Виж всички акаунти</a>
+</div>
+
+<blockquote class="blockquote text-center mt-4">
+    <p class="mb-0">"Не е важно колко пари печелиш, а как ги управляваш."</p>
+</blockquote>
+
+
+<h3>Нашите услуги</h3>
+<ul>
+    <li>Създаване на банкови акаунти</li>
+    <li>Управление на баланси</li>
+    <li>Бърза и сигурна система</li>
+</ul>
+<section class="mt-5">
+    <h3>За NovaBank</h3>
+    <p>
+        NovaBank е създадена с идеята да предложи лесен, модерен и сигурен начин за управление на личните финанси.
+        Нашата платформа е ориентирана към клиента – бърза, интуитивна и винаги до вас.
+    </p>
+</section>
+<section class="mt-5">
+    <h3>Как работи?</h3>
+    <ol>
+        <li>Създай акаунт с няколко клика</li>
+        <li>Добави средства и управлявай баланса си</li>
+        <li>Проследи своите финанси удобно и сигурно</li>
+    </ol>
+</section>
+<section class="mt-5">
+    <h3>Мнения от наши клиенти</h3>
+    <blockquote class="blockquote">
+        <p>"NovaBank ми помогна да следя разходите си по-лесно от всякога!"</p>
+        <footer class="blockquote-footer">Иван Петров</footer>
+    </blockquote>
+    <blockquote class="blockquote">
+        <p>"Сайтът е бърз и сигурен. Препоръчвам го на всеки."</p>
+        <footer class="blockquote-footer">Мария Георгиева</footer>
+    </blockquote>
+</section>
+<div class="alert alert-primary mt-4 text-center">
+    <strong>Готови ли сте да поемете контрола върху вашите финанси?</strong><br />
+    <a asp-page="/Accounts/Create" class="btn btn-lg btn-success mt-2">Създайте акаунт сега</a>
+</div>  
+<footer class="mt-5">
+    <hr />
+    <p>Свържи се с нас: support@novabank.bg | тел: 088 782 280</p>
+    <p>&copy; 2025 NovaBank</p>
+</footer>
