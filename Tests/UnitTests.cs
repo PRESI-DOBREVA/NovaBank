@@ -299,6 +299,53 @@
             var result = customer.Accounts.Count;
             // Assert
             Assert.AreEqual(2, result);
+            //Arrenge
+            var customer2 = new BankData.Models.Customer
+            {
+                Id = 2,
+                Name = "Charlie Brown",
+                Address = "654 Maple St",
+                PhoneNumber = "555-9876",
+                Accounts = new List<BankData.Models.Account>
+                {
+                    new BankData.Models.Account { Id = 3, Balance = 2500 },
+                    new BankData.Models.Account { Id = 4, Balance = 3000 }
+                }
+            };
+            // Act
+            var result2 = customer2.Accounts.Count;
+            // Assert
+            Assert.AreEqual(2, result2);
+            //Arrenge
+            var customer3 = new BankData.Models.Customer
+            {
+                Id = 3,
+                Name = "David Wilson",
+                Address = "987 Birch St",
+                PhoneNumber = "555-6543",
+                Accounts = new List<BankData.Models.Account>
+                {
+                    new BankData.Models.Account { Id = 5, Balance = 4000 },
+                    new BankData.Models.Account { Id = 6, Balance = 3500 }
+                }
+            };
+            // Act
+            var result3 = customer3.Accounts.Count;
+            // Assert
+            Assert.AreEqual(2, result3);
+            //Arrenge
+            var customer4 = new BankData.Models.Customer
+            {
+                Id = 4,
+                Name = "Eve Davis",
+                Address = "159 Cedar St",
+                PhoneNumber = "555-3210",
+                Accounts = new List<BankData.Models.Account>
+                {
+                    new BankData.Models.Account { Id = 7, Balance = 4500 },
+                    new BankData.Models.Account { Id = 8, Balance = 5000 }
+                }
+            };
         }
     }
 }

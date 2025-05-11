@@ -1,56 +1,46 @@
-﻿@page  
-@model BankUI.Pages.Customers.IndexModel  
+﻿@page
+@model BankUI.Pages.Customers.IndexModel
 
-@{  
-   // Задаване на заглавие на страницата  
-   ViewData["Title"] = "Клиенти";  
-}  
+@{
+    ViewData["Title"] = "Клиенти";
+}
 
-<h1>Клиенти</h1>  
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<p>  
-   <!-- Линк за създаване на нов клиент -->  
-   <a asp-page="Create" class="btn btn-primary"> Добави ми нов клиент</a>  
-</p>  
-<table class="table">  
-   <thead>  
-       <tr>  
-           <th>  
-              <!-- Колона за името на клиента -->  
-              Име на човека  
-           </th>  
-           <th>  
-               <!-- Колона за адреса на клиента -->  
-               Адреса на човека  
-           </th>  
-           <th>  
-              <!-- Колона за телефонния номер на клиента -->  
-              Телефонен номер  
-           </th>  
-           <th></th>  
-       </tr>  
-   </thead>  
-   <tbody>  
-@foreach (var item in Model.Customer) {  
-       <tr>  
-           <td>  
-               <!-- Показване на името на клиента -->  
-               @Html.DisplayFor(modelItem => item.Name)  
-           </td>  
-           <td>  
-               <!-- Показване на адреса на клиента -->  
-               @Html.DisplayFor(modelItem => item.Address)  
-           </td>
-           <td>
-               <!-- Показване на телефонния номер на клиента -->
-               @Html.DisplayFor(modelItem => item.PhoneNumber)
-           <td>  
-               <!-- Линкове за редактиране, детайли и изтриване на клиента -->  
-               <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |  
-               <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |  
-               <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>  
-           </td>  
-       </tr>  
-}  
-   </tbody>  
-</table>
+<p class="text-center">
+    <!-- Бутон за на нов клиент -->
+    <a asp-page="Create" class="btn btn-primary">Добави нов клиент</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <!-- Заглавия на колоните в таблицата -->
+                <th>Име</th>
+                <th>Адрес</th>
+                <th>Телефонен номер</th>
+                <th class="text-center">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Customer)
+            {
+                <tr>
+                    <!-- Показване на данни за всеки клиент -->
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                    <td class="text-center">
+                        <!-- Бутон за редактиране на клиент -->
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Редактирай</a>
+                        <!-- Бутон за преглед на детайли на клиент -->
+                        <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Детайли</a>
+                        <!-- Бутон за изтриване на клиент -->
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Изтрий</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

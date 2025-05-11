@@ -1,49 +1,44 @@
-﻿@page  
-@model BankUI.Pages.Accounts.IndexModel  
+﻿@page
+@model BankUI.Pages.Accounts.IndexModel
 
-@{  
-   // Задаване на заглавие за страницата  
-   ViewData["Title"] = "Сметки";  
-}  
+@{
+    ViewData["Title"] = "Сметки";
+}
 
-<h1>Сметки</h1>  
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<p>  
-   <!-- Линк за създаване на нова сметка -->  
-   <a asp-page="Create" class="btn btn-primary">Добави нова сметка</a>  
-</p>  
-<table class="table">  
-   <thead>  
-       <tr>  
-           <th>  
-               <!-- Колона за баланса по сметката -->  
-               Басланс по сметката  
-           </th>  
-           <th>  
-               <!-- Колона за клиента на сметката -->  
-               Клиент на сметката  
-           </th>  
-           <th></th>  
-       </tr>  
-   </thead>  
-   <tbody>  
-       @foreach (var item in Model.Accounts) {  
-           <tr>  
-               <td>  
-                   <!-- Показване на баланса по сметката -->  
-                   @Html.DisplayFor(modelItem => item.Balance)  
-               </td>  
-               <td>  
-                   <!-- Показване на името на клиента -->  
-                   @Html.DisplayFor(modelItem => item.Customer.Name)  
-               </td>  
-               <td>  
-                   <!-- Линкове за редактиране, детайли и изтриване на сметката -->  
-                   <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |  
-                   <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |  
-                   <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>  
-               </td>  
-           </tr>  
-       }  
-   </tbody>  
-</table>
+<p class="text-center">
+    <!-- Бутон за създаване на нова сметка -->
+    <a asp-page="Create" class="btn btn-primary">Добави нова сметка</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <!-- Заглавия на колоните в таблицата -->
+                <th>Баланс по сметката</th>
+                <th>Клиент на сметката</th>
+                <th class="text-center">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Accounts)
+            {
+                <tr>
+                    <!-- Показване на данни на всяка сметка -->
+                    <td>@Html.DisplayFor(modelItem => item.Balance)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Customer.Name)</td>
+                    <td class="text-center">
+                        <!-- Бутон за редактиране на сметка -->
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Редактирай</a>
+                        <!-- Бутон за преглед на детайли на сметка -->
+                        <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Детайли</a>
+                        <!-- Бутон за изтриване на сметка -->
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Изтрий</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

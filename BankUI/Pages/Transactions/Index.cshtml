@@ -1,57 +1,43 @@
-﻿@page  
-@model BankUI.Pages.Transactions.IndexModel  
+﻿@page
+@model BankUI.Pages.Transactions.IndexModel
 
-@{  
-   // Задаване на заглавие на страницата  
-   ViewData["Title"] = "Транзакции";  
-}  
+@{
+    ViewData["Title"] = "Транзакции";
+}
 
-<h1>Транзакции</h1>  
+<h1>Транзакции</h1>
 
-<p>  
-   <!-- Линк за създаване на нова транзакция -->  
-   <a asp-page="Create">Направете нова</a>  
-</p>  
-<table class="table">  
-   <thead>  
-       <tr>  
-           <th>  
-               <!-- Показване на името на колоната за акаунт -->  
-               @Html.DisplayNameFor(model => model.Transaction[0].Account)  
-           </th>  
-           <th>  
-               <!-- Показване на името на колоната за сума -->  
-               @Html.DisplayNameFor(model => model.Transaction[0].Amount)  
-           </th>  
-           <th>  
-               <!-- Показване на името на колоната за тип на транзакцията -->  
-               @Html.DisplayNameFor(model => model.Transaction[0].TransactionType)  
-           </th>  
-           <th></th>  
-       </tr>  
-   </thead>  
-   <tbody>  
-       @foreach (var item in Model.Transaction) {  
-           <tr>  
-               <td>  
-                   <!-- Показване на ID на акаунта -->  
-                   @Html.DisplayFor(modelItem => item.Account.Id)  
-               </td>  
-               <td>  
-                   <!-- Показване на сумата на транзакцията -->  
-                   @Html.DisplayFor(modelItem => item.Amount)  
-               </td>  
-               <td>  
-                   <!-- Показване на типа на транзакцията -->  
-                   @Html.DisplayFor(modelItem => item.TransactionType)  
-               </td>  
-               <td>  
-                   <!-- Линкове за редактиране, преглед на детайли и изтриване на транзакцията -->  
-                   <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a> |  
-                   <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a> |  
-                   <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>  
-               </td>  
-           </tr>  
-       }  
-   </tbody>  
+<p>
+    <!-- Бутон за създаване на нова транзакция -->
+    <a asp-page="Create">Направете нова транзакция</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <!-- Заглавия на колоните в таблицата -->
+            <th>Сметка</th> 
+            <th>Сума</th> <
+            <th>Тип на транзакцията</th>
+            <th class="text-center">Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Transaction)
+        {
+            <tr>
+                <!-- Показване на данни за всяка транзакция -->
+                <td>@Html.DisplayFor(modelItem => item.Account.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                <td>@Html.DisplayFor(modelItem => item.TransactionType)</td>
+                <td>
+                    <!-- Бутон за редактиране на транзакция -->
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Редактирай</a>
+                    <!-- Бутон за преглед на детайли на транзакция -->
+                    <a asp-page="./Details" asp-route-id="@item.Id">Детайли</a>
+                    <!-- Бутон за изтриване на транзакция -->
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Изтрий</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

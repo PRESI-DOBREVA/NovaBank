@@ -3,7 +3,7 @@
 
 @{  
    // Задаване на заглавие за страницата  
-   ViewData["Title"] = "Списък със заеми";  
+   ViewData["Title"] = "Заеми";  
 }  
 
 <h1 class="text-center">@ViewData["Title"]</h1>  
@@ -14,17 +14,17 @@
 </p>  
 
 <div class="table-responsive">  
-   <table class="table table-striped table-bordered">  
-       <thead class="thead-dark">  
-           <tr>  
-               <!-- Заглавия на колоните в таблицата -->  
-               <th>@Html.DisplayNameFor(model => model.Loan[0].Customer)</th>  
-               <th>@Html.DisplayNameFor(model => model.Loan[0].Amount)</th>  
-               <th>@Html.DisplayNameFor(model => model.Loan[0].Interest)</th>  
-               <th>@Html.DisplayNameFor(model => model.Loan[0].Term)</th>  
-               <th class="text-center">Действия</th>  
-           </tr>  
-       </thead>  
+   <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <!-- Заглавия на колоните в таблицата -->
+                <th>Клиент</th>
+                <th>Сума</th> 
+                <th>Лихва</th> 
+                <th>Срок</th> 
+                <th class="text-center">Действия</th> 
+        </thead>
+
        <tbody>  
            @foreach (var item in Model.Loan)  
            {  
@@ -36,11 +36,11 @@
                    <td>@Html.DisplayFor(modelItem => item.Term)</td>  
                    <td class="text-center">  
                        <!-- Бутон за редактиране на заем -->  
-                       <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Редактирай</a> |  
+                       <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Редактирай</a>
                        <!-- Бутон за преглед на детайли за заем -->  
-                       <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Детайли</a> |  
+                       <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Детайли</a>
                        <!-- Бутон за изтриване на заем -->  
-                       <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Изтрий</a>  
+                       <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Изтрий</a>
                    </td>  
                </tr>  
            }  

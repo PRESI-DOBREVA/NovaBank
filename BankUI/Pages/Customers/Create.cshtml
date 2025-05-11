@@ -6,9 +6,7 @@
    ViewData["Title"] = "Създай";  
 }  
 
-<h1>Създай</h1>  
-
-<h4>Клиент</h4>  
+<h2>Създай клиент</h2>
 <hr />  
 <div class="row">  
    <div class="col-md-4">  
@@ -50,7 +48,11 @@
    <a asp-page="Index">Back to List</a>  
 </div>  
 
+<div>
+    <p> След като станете клиент, може да си направите <a class="link-opacity-100" href="/Accounts/Index" >акаунт</a>.</P>
+</div>
+
 @section Scripts {  
-   // Зареждане на скриптове за валидиране  
+   <!--Зареждане на скриптове за валидиране -->
    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}  
 }
